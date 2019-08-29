@@ -19,3 +19,7 @@ python enter.py即可
 ## 如何学习
 
 flask官方文档，李辉以及狗书
+
+## 文档结构
+
+enter.py主文件
