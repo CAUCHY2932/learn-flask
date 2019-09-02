@@ -165,7 +165,7 @@ ENV TZ Asia/Shanghai
 RUN pip install -r requirements.txt -i  http://pypi.douban.com/simple/ --trusted-host pypi.douban.com
 ```
 
-docker run -itd -p 4321:5000 -v /C/Users/LvYangyang/Documents/docker_code/flask_test:/usr/local --name flask_base 461 /bin/sh
+docker run -itd -p 4321:5000 -v /C/Users/LvYangyang/Documents/docker_code/flask_test:/codes --name flask_base 461 /bin/sh
 
 docker run -itd -p 4324:5000 -v /C/Users/LvYangyang/Documents/docker_code/flask_test:/codes --name py3_base 461 /bin/sh
 
@@ -173,11 +173,11 @@ docker run -itd -p 4324:5000 -v /C/Users/LvYangyang/Documents/docker_code/flask_
 
 
 
-usr/local会覆盖python的link
+usr/local会覆盖python的link，因为/usr/local是很多命令的目录，尽量新建一个目录，而非系统目录
 
 加 -p 4321:5000 可能会出现没有python3
 
-docker run -itd -v /C/Users/LvYangyang/Documents/docker_code/flask_test:/usr/local --name flask_test6 95a /bin/sh
+docker run -itd -v /C/Users/LvYangyang/Documents/docker_code/flask_test:/codes --name flask_test6 95a /bin/sh
 
 拉取python3+aphine
 
@@ -188,6 +188,16 @@ docker run -itd -v /C/Users/LvYangyang/Documents/docker_code/flask_test:/usr/loc
 使用豆瓣源安装python包
 
 docker build命令，指定版本
+
+### 后台启动容器的脚本
+
+docker exec -it b6d python /codes/app.py 
+
+可查看日志，但退出时，会关闭，可以用于调试
+
+docker exec -itd b6d python /codes/app.py 
+
+注意host指定0.0.0.0
 
 ### docker运行镜像
 
