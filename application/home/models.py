@@ -3,10 +3,9 @@ from datetime import datetime
 
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String, Date, SmallInteger, orm
+from werkzeug.security import generate_password_hash
 
 from application import db
-
-
 
 
 class Base(db.Model):
@@ -57,12 +56,13 @@ class User(Base):
 
     id = Column(Integer, primary_key=True)
     name = Column(String(50))
+    passwd = generate_password_hash('')
     # insert_date = Column(Date)
 
     @orm.reconstructor
     def __init__(self):
         self.fields = ['id', 'title', 'author', 'binding',
                        'publisher',
-                       'price','pages', 'pubdate', 'isbn',
+                       'price', 'pages', 'pubdate', 'isbn',
                        'summary',
                        'image']
