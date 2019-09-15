@@ -20,6 +20,9 @@ class Config:
     FLASKY_MAIL_SENDER = 'Young Admin <young@example.com>'
     FLASKY_ADMIN = os.environ.get('YOUNG_ADMIN', '2932045582@qq.com')
 
+    # flask_admin
+    FLASK_ADMIN_SWATCH = 'cerulean'
+
     # ssl
     SSL_REDIRECT = False
 

@@ -1,11 +1,11 @@
 # -*- coding:utf-8 -*-
 from datetime import datetime
-
+from flask_admin.contrib.sqla import ModelView
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String, Date, SmallInteger, orm
 from werkzeug.security import generate_password_hash
 
-from application import db
+from application import db, ad
 
 
 class Base(db.Model):
@@ -13,56 +13,37 @@ class Base(db.Model):
     create_time = Column(Integer)
     status = Column(SmallInteger, default=1)
 
-    def __init__(self):
-        # self.create_time = int(datetime.now().timestamp())
-        pass
-
-    def __getitem__(self, item):
-        return getattr(self, item)
-
-    # @property
-    # def create_datetime(self):
-    #     if self.create_time:
-    #         return datetime.fromtimestamp(self.create_time)
-    #     else:
-    #         return None
-
-    def set_attrs(self, attrs_dict):
-        for key, value in attrs_dict.items():
-            if hasattr(self, key):
-                setattr(self, key, value)
-            # if hasattr(self, key) and key != 'id':
-            #     setattr(self, key, value)
-
-    def delete(self):
-        self.status = 0
-
-    def keys(self):
-        return self.fields
-
-    def hide(self, *keys):
-        for key in keys:
-            self.fields.remove(key)
-        return self
-
-    def append(self, *keys):
-        for key in keys:
-            self.fields.append(key)
-        return self
+    # def __init__(self):
+    #     pass
 
 
-class User(Base):
+class User(db.Model):
     __tablename__ = 'users'
 
     id = Column(Integer, primary_key=True)
     name = Column(String(50))
-    passwd = generate_password_hash('')
-    # insert_date = Column(Date)
 
-    @orm.reconstructor
-    def __init__(self):
-        self.fields = ['id', 'title', 'author', 'binding',
-                       'publisher',
-                       'price', 'pages', 'pubdate', 'isbn',
-                       'summary',
-                       'image']
+
+class Post(db.Model):
+    __tablename__ = 'posts'
+    id = db.Column(db.Integer, primary_key=True)
+    body = db.Column(db.Text)
+    body_html = db.Column(db.Text)
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+
+class Article(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title=db.Column(db.String(32))
+    content=db.Column(db.Text,nullable=False)
+    tag=db.Column(db.String(64),nullable=True)
+    create_time = db.Column(db.DateTime, nullable=True, default=datetime.now)
+
+    def __repr__(self):
+        return '<User %r>' % self.title
+
+
+ad.add_view(ModelView(Article, db.session, name='文章管理'))
+ad.add_view(ModelView(User, db.session, name='用户管理'))
+ad.add_view(ModelView(Post, db.session, name='投递管理'))

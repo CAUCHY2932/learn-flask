@@ -21,10 +21,8 @@ def interval_error(e):
 
 @home.route('/')
 def index():
-    u = User(id=1, name='zhangsan')
-
-    # db.session.add(User)
-
+    # u = User(id=1, name='zhangsan')
+    u = dict(msg='success!')
     response = jsonify(u)
     response.status_code = 200
     return response

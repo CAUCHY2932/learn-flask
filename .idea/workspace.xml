@@ -2,15 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="575fca87-d073-423e-a2cf-ab752e236922" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/email.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/admin/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/admin/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/admin/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/change_jsonify.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/change_jsonify.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/home/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/home/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/home/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/home/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -125,7 +125,7 @@
       <workItem from="1566918469833" duration="550000" />
       <workItem from="1566990427121" duration="968000" />
       <workItem from="1568203752030" duration="3703000" />
-      <workItem from="1568550464017" duration="465000" />
+      <workItem from="1568550464017" duration="3248000" />
     </task>
     <task id="LOCAL-00001" summary="# [young]- init project">
       <created>1566918837919</created>
@@ -134,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566918837919</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="# [young]- init project">
+      <created>1568551742565</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1568551742565</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
